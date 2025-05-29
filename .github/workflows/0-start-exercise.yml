@@ -38,7 +38,7 @@ jobs:
         run: |
           touch _config.yml
 
-      - name: Create index.md file
+      - name: Create index.html file
         run: |
           cat > index.md << EOF
           ---
