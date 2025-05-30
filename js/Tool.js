@@ -34,7 +34,7 @@ class Tool {
     static BOP_APP = new Tool(
         'BopApp',
         'bop app',
-        ['bopapp', 'bop-app', 'bops', 'ba'],
+        ['bopapp', 'bop-app', 'bops', 'ba', 'bop'],
         (plant, env) => {
             let envPart = `${plant.urlPart}${env.urlSuffix}`;
             return `https://xps-app982.apps.iod-${envPart}.volvocars.net/bop-app/en/bop-info`;
@@ -53,6 +53,7 @@ class Tool {
 
     constructor(name, description, aliases, urlFunction) {
         this.name = name;
+        this.aliases = aliases;
         this.description = description;
         this.urlFunction = urlFunction;
 

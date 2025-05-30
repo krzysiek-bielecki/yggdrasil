@@ -19,38 +19,32 @@ function logQParamSplitBySpace() {
     }
 }
 
-function redirect() {
-    // Z mapą narzędzi do subdomen lub ścieżek, jak trzeba
-    const toolMap = {
-        logs: 'kibana',
-        repo: 'gitlab',
-        pr: 'github',
-    };
+function renderToolTable(tools) {
+    const table = document.createElement('table');
 
-    // Lista dozwolonych środowisk
-    const environments = ['dev', 'qa', 'prod'];
+    const header = table.insertRow();
+    ['Name', 'Description', 'Aliases'].forEach(text => {
+        const th = document.createElement('th');
+        th.textContent = text;
+        header.appendChild(th);
+    });
 
-    // Pobierz parametr q z URL
-    const queryParams = new URLSearchParams(window.location.search);
-    const q = queryParams.get('q');
+    tools.forEach(tool => {
+        console.log(tool);
+        const row = table.insertRow();
+        row.insertCell().textContent = tool.name;
+        row.insertCell().textContent = tool.description;
+        row.insertCell().textContent = tool.aliases.join(', ');
+    });
 
-    if (!q) return; // brak parametru - nic nie rób
-
-    const tokens = q.toLowerCase().split(/\s+/); // np. ['dev', 'logs']
-
-    // Znajdź środowisko i narzędzie
-    const env = tokens.find(token => environments.includes(token));
-    const tool = tokens.find(token => toolMap.hasOwnProperty(token));
-
-    if (!env || !tool) return; // nie znaleziono poprawnych wartości
-
-    // Stwórz adres
-    const targetHost = `${toolMap[tool]}.${env}.pl`;
-    console.log(targetHost);
-
-    // Przekierowanie
-    // window.location.href = `https://${targetHost}`;
+    document.getElementById('tool-table').appendChild(table);
 }
 
+// Uruchomienie po załadowaniu strony
+document.addEventListener('DOMContentLoaded', () => {
+    const tools = Object.values(Tool).filter(value => value instanceof Tool);
+    renderToolTable(tools);
+});
+
+
 logQParamSplitBySpace();
-// redirect()
