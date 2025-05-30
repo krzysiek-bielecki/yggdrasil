@@ -40,7 +40,6 @@ function renderToolTable(tools) {
     document.getElementById('tool-table').appendChild(table);
 }
 
-// Uruchomienie po załadowaniu strony
 document.addEventListener('DOMContentLoaded', () => {
     const tools = Object.values(Tool).filter(value => value instanceof Tool);
     renderToolTable(tools);
