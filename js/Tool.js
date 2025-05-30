@@ -51,6 +51,24 @@ class Tool {
         }
     );
 
+    static BOARD = new Tool(
+        'board',
+        'sprint view',
+        ['board', 'sprint'],
+        (plant, env) => {
+            return `https://volvocargroup.visualstudio.com/Industrial%20Operations/_sprints/taskboard/Production%20Control%20Cars/Industrial%20Operations/`;
+        }
+    );
+
+    static PIPELINES = new Tool(
+        'pipelines',
+        'azure pipelines',
+        ['pipelines', 'pipe', 'azp', 'azure-pipelines'],
+        (plant, env) => {
+            return `https://volvocargroup.visualstudio.com/Industrial%20Operations/_build`;
+        }
+    );
+
     constructor(name, description, aliases, urlFunction) {
         this.name = name;
         this.aliases = aliases;
