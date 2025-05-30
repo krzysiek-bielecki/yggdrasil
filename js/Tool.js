@@ -21,6 +21,36 @@ class Tool {
         }
     );
 
+    static RED_PANDA = new Tool(
+        'Red Panda',
+        'red panda with kafka events',
+        ['redpanda', 'rp', 'events', 'kafka'],
+        (plant, env) => {
+            let envPart = `${plant.urlPart}${env.urlSuffix}`;
+            return `https://redpanda-console.apps.iod-${envPart}.volvocars.net/overview`;
+        }
+    );
+
+    static BOP_APP = new Tool(
+        'BopApp',
+        'bop app',
+        ['bopapp', 'bop-app', 'bops', 'ba'],
+        (plant, env) => {
+            let envPart = `${plant.urlPart}${env.urlSuffix}`;
+            return `https://xps-app982.apps.iod-${envPart}.volvocars.net/bop-app/en/bop-info`;
+        }
+    );
+
+    static OPEN_SHIFT = new Tool(
+        'OpenShift',
+        'red hat OpenShift',
+        ['openshift', 'os', 'opensh', 'openshit'],
+        (plant, env) => {
+            let envPart = `${plant.urlPart}${env.urlSuffix}`;
+            return `https://console-openshift-console.apps.iod-${envPart}.volvocars.net/`;
+        }
+    );
+
     constructor(name, description, aliases, urlFunction) {
         this.name = name;
         this.description = description;
@@ -45,3 +75,5 @@ class Tool {
         return this.urlFunction(plant, env);
     }
 }
+
+console.log('Loaded tools:', Object.values(Tool).filter(value => value instanceof Tool).map(p => p.name).join(', '));

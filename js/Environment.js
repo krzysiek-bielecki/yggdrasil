@@ -7,6 +7,12 @@ class Environment {
         ['qa', 'q']
     );
 
+    static NON_PROD = new Environment(
+        'NON-PROD',
+        '-nonprod',
+        ['nonprod', 'np', 'nprod']
+    );
+
     static PROD = new Environment(
         'PROD',
         '',
