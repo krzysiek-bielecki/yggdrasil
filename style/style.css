@@ -1,13 +1,52 @@
 table {
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     width: 100%;
     margin-top: 20px;
+    background-color: rgba(245, 245, 245, 0.6);
+    border: 2px solid #7c5c36;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.15);
+    font-family: 'Merriweather', serif;
 }
+
 th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
+    border: 1px solid #bfa77a;
+    padding: 10px 12px;
     text-align: left;
 }
+
 th {
-    background-color: #f2f2f2;
+    background-color: #e0d6c3;
+    color: #3b2c1a;
+    font-weight: 700;
+    font-family: 'UnifrakturCook', cursive;
+    letter-spacing: 1px;
+    font-size: 1.3em;
+}
+
+tr {
+    transition: background-color 0.2s;
+}
+
+tr:hover {
+    background-color: rgba(245, 245, 245, 0.6);
+}
+
+body {
+    font-family: 'Merriweather', serif;
+    background-image: url('../img/yggdrasil.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: #2d221b;
+}
+
+h1, h2, h3 {
+    font-family: 'UnifrakturCook', cursive;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #3b2c1a;
+    text-shadow: 1px 1px 4px #e0d6c3;
+    font-size: 2em;
 }
