@@ -69,6 +69,24 @@ class Tool {
         }
     );
 
+    static PULL_REQUESTS = new Tool(
+        'pull requests',
+        'pull requests in Azure DevOps',
+        ['pr', 'prs', 'pullrequests', 'pullrequests', 'pull-requests'],
+        () => {
+            return `https://volvocargroup.visualstudio.com/Industrial%20Operations/_git/XPS/pullrequests`;
+        }
+    );
+
+    static ESTIMATIONS = new Tool(
+        'estimations',
+        'estimation sessions in Azure DevOps',
+        ['estimations', 'estimate', 'estimates', 'est'],
+        () => {
+            return `https://volvocargroup.visualstudio.com/Industrial%20Operations/_apps/hub/ms-devlabs.estimate.estimate-hub#/session/jr3ik/PC_Cars%20estimation%20session`;
+        }
+    );
+
     constructor(name, description, aliases, urlFunction) {
         this.name = name;
         this.aliases = aliases;
