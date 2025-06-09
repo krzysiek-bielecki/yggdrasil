@@ -5,8 +5,11 @@ class Tool {
         'Kibana',
         'search logs in choosen environment',
         ['kibana', 'kib', 'log', 'logs'],
-        (plant, env) => {
+        (plant, env, application) => {
             let envPart = `${plant.urlPart}${env.urlSuffix}`;
+            if (application !== undefined) {
+                return `https://me.logs.volvocars.net/s/${envPart}/app/discover#/?_g=(filters:!(),query:(language:kuery,query:''),refreshInterval:(pause:!t,value:60000),time:(from:now%2Fd,to:now%2Fd))&_a=(columns:!(message,kubernetes.container.name),dataSource:(dataViewId:'1128806a-3696-4550-95a5-9b98c6dbb0cc',type:dataView),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,field:kubernetes.container.name,index:'1128806a-3696-4550-95a5-9b98c6dbb0cc',key:kubernetes.container.name,negate:!f,params:(query:${application.name}),type:phrase),query:(match_phrase:(kubernetes.container.name:${application.name})))),hideChart:!f,interval:auto,query:(language:kuery,query:''),sort:!(!('@timestamp',asc)))`;
+            }
             return `https://me.logs.volvocars.net/s/${envPart}/app/discover#/`;
         }
     );
