@@ -11,6 +11,15 @@ class Tool {
         }
     );
 
+    static REPO = new Tool(
+        'Repository',
+        'azure devops repositories for XPS project',
+        ['repo'],
+        () => {
+            return `https://volvocargroup.visualstudio.com/Industrial%20Operations/_git/XPS`;
+        }
+    );
+
     static CASTLE = new Tool(
         'CASTLE',
         'castle',
@@ -31,13 +40,12 @@ class Tool {
         }
     );
 
-    static BOP_APP = new Tool(
-        'BopApp',
-        'bop app',
-        ['bopapp', 'bop-app', 'bops', 'ba', 'bop'],
-        (plant, env) => {
-            let envPart = `${plant.urlPart}${env.urlSuffix}`;
-            return `https://xps-app982.apps.iod-${envPart}.volvocars.net/bop-app/en/bop-info`;
+    static UI = new Tool(
+        'UI',
+        'ui application',
+        ['ui'],
+        (plant, env, application) => {
+            return application.getUiUrl(plant, env);
         }
     );
 
@@ -87,6 +95,15 @@ class Tool {
         }
     );
 
+    static SWAGGER = new Tool(
+        'Swagger',
+        'swagger for given application',
+        ['swagger'],//rather unused
+        (plant, env, application) => {
+            return application.getSwaggerUrl(plant, env);
+        }
+    );
+
     constructor(name, description, aliases, urlFunction) {
         this.name = name;
         this.aliases = aliases;
@@ -108,8 +125,8 @@ class Tool {
         return undefined;
     }
 
-    getUrl(plant, env) {
-        return this.urlFunction(plant, env);
+    getUrl(plant, env, application) {
+        return this.urlFunction(plant, env, application);
     }
 }
 

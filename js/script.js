@@ -8,12 +8,14 @@ function logQParamSplitBySpace() {
     if (q !== null) {
         let plant = Plant.getByQuery(q);
         let env = Environment.getByQuery(q);
+        let application = Application.getByQuery(q);
         let tool = Tool.getByQuery(q);
         console.log(plant)
         console.log(env)
         console.log(tool)
-        console.log(tool.getUrl(plant, env));
-        window.location.href = tool.getUrl(plant, env);
+        console.log(application)
+        console.log(tool.getUrl(plant, env, application));
+        window.location.href = tool.getUrl(plant, env, application);
     } else {
         console.log('Parameter "q" not found');
     }
