@@ -98,6 +98,24 @@ class Tool {
         }
     );
 
+    static CHAT_GPT = new Tool(
+        'chat GPT',
+        'chat gpt',
+        ['chatgpt', 'chat-gpt', 'gpt', 'chat'],
+        () => {
+            return `https://chatgpt.com`;
+        }
+    );
+
+    static PERPLEXITY = new Tool(
+        'perplexity',
+        'yet another AI tool',
+        ['perplex', 'perplexity', 'perai'],
+        () => {
+            return `https://www.perplexity.ai`;
+        }
+    );
+
     static SWAGGER = new Tool(
         'Swagger',
         'swagger for given application',
