@@ -23,6 +23,60 @@ class Tool {
         }
     );
 
+    static RANDSTAD = new Tool(
+        'Randstad',
+        'HR tool for Polish workers',
+        ['randstad', 'ranstad'],
+        () => {
+            return `https://mojrandstad.pl/`;
+        }
+    );
+
+    static SUCCESS_FACTORS = new Tool(
+        'SuccessFactors',
+        'yet another HR tool, global one',
+        ['successfactors', 'sf', 'sfactors', 'sucfac', 'sucf'],
+        () => {
+            return `https://performancemanager5.successfactors.eu/sf/home?bplte_company=C0000870892P`;
+        }
+    );
+
+    static BACKSTAGE = new Tool(
+        'castle-tech-docs',
+        'castle-tech-docs on backstage',
+        ['backstage', 'techdocs'],
+        () => {
+            return `https://backstage.volvocars.biz/docs/default/component/castle-tech-docs/`;
+        }
+    );
+
+    static INTRANET = new Tool(
+        'intranet',
+        'Volvo Cars intranet',
+        ['intranet', 'intra'],
+        () => {
+            return `https://intranet.volvocars.net/`;
+        }
+    );
+
+    static BUSINESS_PARK_ISSUES = new Tool(
+        'business park issues form',
+        'form to report issues in business park (KRK)',
+        ['issues-form', 'issuesform'],
+        () => {
+            return `https://forms.office.com/pages/responsepage.aspx?id=bnb6gUmjZ0iL9Ks14lCgj-FfZ1h9WbpBvbTMhLYxmA5UNkdRRkxQVUQ1RkdGNFhHUlZWMUxITEVUNi4u/`;
+        }
+    );
+
+    static CATS = new Tool(
+        'cats',
+        'time reporting application',
+        ['cats'],
+        () => {
+            return `https://mysapfiori.volvocars.biz/`;
+        }
+    );
+
     static CASTLE = new Tool(
         'CASTLE',
         'castle',
