@@ -14,6 +14,15 @@ class Tool {
         }
     );
 
+    static VIP = new Tool(
+        'VIP portal',
+        'browse IMB MQ messages',
+        ['vip'],
+        () => {
+            return `https://vip.volvocars.net/`;
+        }
+    );
+
     static REPO = new Tool(
         'Repository',
         'azure devops repositories for XPS project',

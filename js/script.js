@@ -31,19 +31,23 @@ function renderToolTable(tools) {
         header.appendChild(th);
     });
 
-    tools.forEach(tool => {
-        console.log(tool);
-        const row = table.insertRow();
-        row.insertCell().textContent = tool.name;
-        row.insertCell().textContent = tool.description;
-        row.insertCell().textContent = tool.aliases.join(', ');
-    });
+    tools
+        .sort()
+        .forEach(tool => {
+            console.log(tool);
+            const row = table.insertRow();
+            row.insertCell().textContent = tool.name;
+            row.insertCell().textContent = tool.description;
+            row.insertCell().textContent = tool.aliases.join(', ');
+        });
 
     document.getElementById('tool-table').appendChild(table);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const tools = Object.values(Tool).filter(value => value instanceof Tool);
+    const tools = Object.values(Tool)
+        .filter(value => value instanceof Tool)
+        .sort((a, b) => a.name.localeCompare(b.name));
     renderToolTable(tools);
 });
 
